@@ -1,4 +1,4 @@
-#include "searchengine.h"
+#include "Searchengine.h"
 
 using namespace std;
 int main(int argc, char **argv)
@@ -12,8 +12,9 @@ int main(int argc, char **argv)
     int linecounter=0;
     int maxlength=-1;
     int k=atoi(argv[4]);
-    FILE* file = fopen(argv[2],"r");
-    if(file==NULL)
-        cout<<"Error opening file"<<endl;
-    fclose(file);
+    if(read_sizes(&linecounter,&maxlength,argv[2])==-1)
+        return -1;
+    cout<<"Initialisation finished"<<endl;
+    cout<<"Linecounter: "<<linecounter<<endl<<"Maxlength: "<<maxlength<<endl;
+    return 1;
 }
